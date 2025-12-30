@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TERMINAL_SESSION_0922</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="glitch-overlay"></div>
+    <div id="peripheral-shadow"></div>
+
+    <main id="terminal">
+        <section id="login-gate">
+            <div class="status-bar">STATUS: <span id="sys-status">UNLOCKED_WAITING</span></div>
+            <div class="input-container">
+                <label for="username">ACCESS_ID:</label>
+                <input type="text" id="username" autocomplete="off" spellcheck="false" placeholder="TYPE_ANYTHING">
+            </div>
+            <div class="input-container">
+                <label for="password">ENCRYPTION_KEY:</label>
+                <input type="password" id="password" disabled>
+            </div>
+            <p id="hint-text">System activity detected. Cease input to synchronize...</p>
+        </section>
+
+        <section id="directory" class="hidden">
+            <div class="dir-header">
+                <h2>ROOT_DIRECTORY / DATA / RECOVERY</h2>
+                <p class="warning-text">VOLATILE SESSION: FILES MAY DEGRADE</p>
+            </div>
+            <ul id="file-list">
+                <li class="file-item" onclick="openVideo()">
+                    <span class="file-name">REC_20251229_0314.mp4</span>
+                    <span class="file-size">14.2MB</span>
+                </li>
+                <li class="file-item corrupted">
+                    <span class="file-name">FORENSIC_LOG_01.txt</span>
+                    <span class="file-size">[LOCKED]</span>
+                </li>
+            </ul>
+        </section>
+
+        <div id="video-overlay" class="hidden">
+            <div class="video-frame">
+                <div class="scanline"></div>
+                <video id="main-video">
+                    <source src="public/video/REC_20251229_0314.mp4" type="video/mp4">
+                </video>
+                <div class="video-controls">
+                    <button onclick="closeVideo()">[ DISCONNECT_FEED ]</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

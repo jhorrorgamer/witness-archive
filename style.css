@@ -1,0 +1,92 @@
+:root {
+    --bg-color: #050505;
+    --text-color: #a0a0a0;
+    --accent-color: #222;
+    --highlight: #ffffff;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Courier New", Courier, monospace;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#terminal {
+    width: 90%;
+    max-width: 650px;
+    border: 1px solid var(--accent-color);
+    padding: 30px;
+    position: relative;
+    z-index: 10;
+    background: rgba(0,0,0,0.8);
+}
+
+.status-bar { font-size: 0.8rem; margin-bottom: 20px; border-bottom: 1px solid var(--accent-color); padding-bottom: 5px; }
+
+.input-container { margin: 20px 0; display: flex; flex-direction: column; }
+
+input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--accent-color);
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 1.2rem;
+    outline: none;
+    padding: 10px 0;
+}
+
+.hidden { display: none !important; }
+
+/* File Directory */
+#file-list { list-style: none; padding: 0; margin-top: 30px; }
+.file-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.file-item:hover { background: #111; border-color: #333; color: white; }
+.corrupted { opacity: 0.3; cursor: not-allowed; }
+
+/* Video Player */
+#video-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.video-frame { position: relative; width: 80%; max-width: 800px; border: 1px solid #333; }
+#main-video { width: 100%; filter: grayscale(100%) contrast(1.2) brightness(0.7); }
+
+.scanline {
+    width: 100%; height: 100%; position: absolute;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.3) 50%);
+    background-size: 100% 4px;
+    pointer-events: none;
+}
+
+.video-controls { padding: 10px; background: #0a0a0a; text-align: right; }
+button { background: none; color: #444; border: 1px solid #333; font-family: inherit; cursor: pointer; }
+button:hover { color: white; border-color: white; }
+
+/* Peripheral Shadow */
+#peripheral-shadow {
+    position: fixed;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(5,5,5,0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 5;
+}
